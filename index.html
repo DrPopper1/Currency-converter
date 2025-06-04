@@ -13,36 +13,27 @@
             <div>Сайт не работает без него.</div>
         </div>
     </noscript>
-    <div class="converter">
-        <h1>Конвертер валют</h1>
-        <div class="converter_container">
-            <div class="cont">
-                <div class="input">
-                    <input type="number" id="amount" placeholder="Количество">
-                    <button id="convert">Convert</button>
-                </div>
-                <div class="select_container">
-                    <div class="select">
-                        Из
-                        <select id="fromCurrency">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        </select>
-                    </div>
-                    <div class="select">
-                        В
-                        <select id="toCurrency">
-                        <option value="EUR">EUR</option>
-                        <option value="USD">USD</option>
-                        <option value="GBP">GBP</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <p id="result">Результат</p>
+
+    <div class="converter">Конвертер валют</div>
+
+    <div class="container">
+        <div class="select">Из<select id="fromCurrency"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></div>
+        <div class="input">
+            <input type="number" id="input1" required min="0" max="1000000000" value="5000" size="10">
         </div>
     </div>
+
+    <div class="big_button">
+        <h3>Поменять местами</h3>
+    </div>
+
+    <div class="container">
+        <div class="select">В<select id="toCurrency"><option value="EUR">EUR</option><option value="USD">USD</option><option value="GBP">GBP</option></select></div>
+        <div class="input">
+            <input type="number" id="input2" required maxlength="10" value="5000">
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

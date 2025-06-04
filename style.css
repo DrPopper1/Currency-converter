@@ -1,5 +1,17 @@
 * {
     font-family: 'Segoe UI', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --font-size: 25px;
+    --gap: 20px;
+    --main-bg-color: #f0f0f0;
+    --main-border: black 2px solid;
+    --padding: 20px;
+    --border-radius: 20px;
+    --box-shadow: 10px 10px 15px rgb(41, 40, 40);
 }
 
 .noscript {
@@ -26,46 +38,69 @@
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    background: #c8e0b4;
+    background: linear-gradient(90deg,rgba(200, 224, 180, 1) 0%, rgba(184, 224, 177, 1) 50%, rgba(144, 209, 150, 1) 100%);
+    gap: 100px;
 }
 
 .converter {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 40px;
+    padding: var(--padding);
+    background-color: var(--main-bg-color);
+    border: var(--main-border);
+    position: absolute;
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    top: 1vh;
+    user-select: none;
+    box-shadow: var(--box-shadow);
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.cont {
+.container {
     display: grid;
-    gap: 10px;
-    justify-items: flex-start;
+    gap: var(--gap);
 }
 
-.converter_container {
+body, .select {
+    justify-content: center;
+    align-items: center;
     display: flex;
-    justify-content: space-around;
 }
 
-.select_container {
-    display: grid;
+.select {
+    gap: var(--gap);
+}
+
+#fromCurrency, #toCurrency {
+    width: 100px;
+    height: 50px;
+    font-size: var(--font-size);
+}
+
+#input1, #input2 {
+    width: 200px;
+    height: 50px;
+    font-size: var(--font-size);
+}
+
+.big_button, .container {
+    padding: var(--padding);
+    border: var(--main-border);
+    font-size: var(--font-size);
+    background-color: var(--main-bg-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+}
+
+.big_button {
+    user-select: none;
+}
+
+.big_button:hover {
+    background-color: #e2dddd;
+}
+
+.big_button:active {
+    box-shadow: 5px 5px 15px rgb(41, 40, 40);
 }
