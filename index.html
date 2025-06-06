@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <noscript>
         <div class="noscript">
             <div>Пожалуйста, включите JavaScript.</div>
@@ -19,21 +20,24 @@
     <div class="container">
         <div class="select">Из<select id="fromCurrency"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></div>
         <div class="input">
-            <input type="number" id="input1" required min="0" max="1000000000" value="5000" size="10">
+            <input type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
         </div>
+        <button id="convert">Конвертировать</bitton>
     </div>
 
-    <div class="big_button">
+    <button class="big_button">
         <h3>Поменять местами</h3>
-    </div>
+    </button>
 
     <div class="container">
         <div class="select">В<select id="toCurrency"><option value="EUR">EUR</option><option value="USD">USD</option><option value="GBP">GBP</option></select></div>
         <div class="input">
-            <input type="number" id="input2" required maxlength="10" value="5000">
+            <input type="number" id="input2" required maxlength="10" value="0">
         </div>
     </div>
 
     <script src="script.js"></script>
+
+    
 </body>
 </html>

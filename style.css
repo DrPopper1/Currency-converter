@@ -60,6 +60,12 @@ body {
 .container {
     display: grid;
     gap: var(--gap);
+    padding: var(--padding);
+    border: var(--main-border);
+    font-size: var(--font-size);
+    background-color: var(--main-bg-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
 }
 
 body, .select {
@@ -84,23 +90,16 @@ body, .select {
     font-size: var(--font-size);
 }
 
-.big_button, .container {
-    padding: var(--padding);
-    border: var(--main-border);
-    font-size: var(--font-size);
-    background-color: var(--main-bg-color);
-    box-shadow: var(--box-shadow);
-    border-radius: 20px;
-}
-
 .big_button {
     user-select: none;
+    padding: var(--padding);
+    font-size: var(--font-size);
+    border: var(--main-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-.big_button:hover {
-    background-color: #e2dddd;
-}
-
-.big_button:active {
-    box-shadow: 5px 5px 15px rgb(41, 40, 40);
+#convert {
+    height: 50px;
+    font-size: var(--font-size);
 }
