@@ -2,7 +2,6 @@ function loadCurrencies() {
     const converter = document.querySelector('.converter');
     const loader = document.querySelector('.loader');
     const fade = document.getElementById('themeFade');
-    const white = document.querySelector('.white');
     converter.classList.add('none');
     fade.style.opacity = '1';
     fetch('https://api.frankfurter.app/currencies')
@@ -39,7 +38,7 @@ function loadCurrencies() {
                 }, 200);
             }, 200);
         }, 18000);
-}
+};
 
 loadCurrencies();
 
@@ -58,3 +57,19 @@ document.getElementById('convert').addEventListener('click', function() {
 });
 
 const swap = document.querySelector('.swap');
+
+swap.addEventListener('click', function() {
+    const fromCurrencyD = document.getElementById('fromCurrency');
+    const toCurrencyD = document.getElementById('toCurrency');
+
+    const temp = fromCurrencyD.value;
+    fromCurrencyD.value = toCurrencyD.value;
+    toCurrencyD.value = temp;
+
+    const amountD = document.getElementById('input1');
+    const resultatD = document.getElementById('input2');
+
+    const input = amountD.value;
+    amountD.value = resultatD.value;
+    resultatD.value = input;
+});
