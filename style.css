@@ -103,3 +103,7 @@ body, .select {
     height: 50px;
     font-size: var(--font-size);
 }
+
+span {
+    user-select: none;
+}
