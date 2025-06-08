@@ -15,29 +15,35 @@
         </div>
     </noscript>
 
-    <div class="converter">Конвертер валют</div>
-
-    <div class="container">
-        <div class="select"><span>Из</span><select id="fromCurrency"></select></div>
-        <div class="input">
-            <input type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
-        </div>
-        <button id="convert">Конвертировать</bitton>
+    <div id="themeFade" class="fade-overlay">
+            <span class="loader"></span>
+            Пожалуйста, подождите...
     </div>
 
-    <button class="big_button">
-        <h3>Поменять местами</h3>
-    </button>
+    <div class="all">
+            <div class="converter">Конвертер валют</div>
 
-    <div class="container">
-        <div class="select"><span>В</span><select id="toCurrency"></select></div>
-        <div class="input">
-            <input type="number" id="input2" required maxlength="10" value="0">
+        <div class="container">
+            <div class="select"><span class="text">Из</span><select id="fromCurrency"></select></div>
+            <div class="input">
+                <input type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
+            </div>
+            <button id="convert">Конвертировать</bitton>
+        </div>
+
+        <button class="swap">
+            <h3>Поменять местами</h3>
+        </button>
+
+        <div class="container">
+            <div class="select"><span class="text">В</span><select id="toCurrency"></select></div>
+            <div class="input">
+                <input type="number" id="input2" required maxlength="10" value="0">
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 
-    
 </body>
 </html>
