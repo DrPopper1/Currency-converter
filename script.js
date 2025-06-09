@@ -1,7 +1,7 @@
 const fromCurrencySelect = document.getElementById('fromCurrency');
 const toCurrencySelect = document.getElementById('toCurrency');
 const fade = document.getElementById('themeFade');
-localStorage.removeItem('currencies_saved')
+
 if(localStorage.getItem('currencies_saved')) {
     fade.style.opacity = '0';
     const currenciesA = JSON.parse(localStorage.getItem('currencies_saved'));
@@ -15,6 +15,13 @@ if(localStorage.getItem('currencies_saved')) {
         option2.value = currenciesA[i];
         option2.textContent = currenciesA[i];
         toCurrencySelect.appendChild(option2);
+    }
+    if (localStorage.getItem('toCurrency') || localStorage.getItem('fromCurrency')) {
+    const toCurrency = document.getElementById('toCurrency');
+    const fromCurrency = document.getElementById('fromCurrency');
+    
+    toCurrency.value = JSON.parse(localStorage.getItem('toCurrency'));
+    fromCurrency.value = JSON.parse(localStorage.getItem('fromCurrency'));
     }
     console.log(JSON.parse(localStorage.getItem('currencies_saved')));
 } else {
@@ -37,7 +44,13 @@ if(localStorage.getItem('currencies_saved')) {
                 toCurrencySelect.appendChild(option2);
                 localStorage.setItem('currencies_saved', JSON.stringify(currencies_saved));
             }
-            console.log(currencies_saved);
+            if (localStorage.getItem('toCurrency') || localStorage.getItem('fromCurrency')) {
+                const toCurrency = document.getElementById('toCurrency');
+                const fromCurrency = document.getElementById('fromCurrency');
+    
+                toCurrency.value = JSON.parse(localStorage.getItem('toCurrency'));
+                fromCurrency.value = JSON.parse(localStorage.getItem('fromCurrency'));
+            }
             loader.style.opacity = '0';
             fade.style.opacity = '0';
         });
@@ -48,6 +61,13 @@ document.getElementById('convert').addEventListener('click', function() {
     const toCurrency = document.getElementById('toCurrency').value;
     const fromCurrency = document.getElementById('fromCurrency').value;
     const amount = document.getElementById('input1').value;
+    if (localStorage.getItem('toCurrency') || localStorage.getItem('fromCurrency')) {
+        localStorage.removeItem('toCurrency');
+        localStorage.removeItem('fromCurrency');
+    }
+    localStorage.setItem('toCurrency', JSON.stringify(toCurrency));
+    localStorage.setItem('fromCurrency', JSON.stringify(fromCurrency));
+
     fetch(`https://api.frankfurter.dev/v1/latest?base=${fromCurrency}&symbols=${toCurrency}`)
         .then((resp) => resp.json())
         .then((data) => {
@@ -65,6 +85,12 @@ swap.addEventListener('click', function() {
 
     const temp = fromCurrencyD.value;
     fromCurrencyD.value = toCurrencyD.value;
+    if (localStorage.getItem('toCurrency') || localStorage.getItem('fromCurrency')) {
+        localStorage.removeItem('toCurrency');
+        localStorage.removeItem('fromCurrency');
+    }
+    localStorage.setItem('toCurrency', JSON.stringify(temp));
+    localStorage.setItem('fromCurrency', JSON.stringify(toCurrencyD.value));
     toCurrencyD.value = temp;
 
     const amountD = document.getElementById('input1');
