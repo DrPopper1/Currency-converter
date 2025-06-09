@@ -1,18 +1,31 @@
-function loadCurrencies() {
-    const converter = document.querySelector('.converter');
+const fromCurrencySelect = document.getElementById('fromCurrency');
+const toCurrencySelect = document.getElementById('toCurrency');
+const fade = document.getElementById('themeFade');
+localStorage.removeItem('currencies_saved')
+if(localStorage.getItem('currencies_saved')) {
+    fade.style.opacity = '0';
+    const currenciesA = JSON.parse(localStorage.getItem('currencies_saved'));
+    for (let i = 0; i < currenciesA.length; i++) {
+        const option1 = document.createElement('option');
+        option1.value = currenciesA[i];
+        option1.textContent = currenciesA[i];
+        fromCurrencySelect.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = currenciesA[i];
+        option2.textContent = currenciesA[i];
+        toCurrencySelect.appendChild(option2);
+    }
+    console.log(JSON.parse(localStorage.getItem('currencies_saved')));
+} else {
+    let currencies_saved = [];
     const loader = document.querySelector('.loader');
-    const fade = document.getElementById('themeFade');
-    converter.classList.add('none');
-    fade.style.opacity = '1';
     fetch('https://api.frankfurter.app/currencies')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            const currencies = data;
-            const fromCurrencySelect = document.getElementById('fromCurrency');
-            const toCurrencySelect = document.getElementById('toCurrency');
-
-            for (const currency in currencies) {
+            for (const currency in data) {
+                currencies_saved.push(currency);
                 const option1 = document.createElement('option');
                 option1.value = currency;
                 option1.textContent = currency;
@@ -22,25 +35,13 @@ function loadCurrencies() {
                 option2.value = currency;
                 option2.textContent = currency;
                 toCurrencySelect.appendChild(option2);
+                localStorage.setItem('currencies_saved', JSON.stringify(currencies_saved));
             }
-        })
-        setTimeout(() => {
-            setTimeout(() => {
-                loader.style.opacity = '0.8';
-                fade.style.opacity = '0.8';
-                setTimeout(() => {
-                    loader.style.opacity = '0.6';
-                    fade.style.opacity = '0.6';
-                    setTimeout(() => {
-                        loader.style.opacity = '0';
-                        fade.style.opacity = '0';
-                    }, 200);
-                }, 200);
-            }, 200);
-        }, 18000);
+            console.log(currencies_saved);
+            loader.style.opacity = '0';
+            fade.style.opacity = '0';
+        });
 };
-
-loadCurrencies();
 
 document.getElementById('convert').addEventListener('click', function() {
     const resultat = document.getElementById('input2');
