@@ -21,12 +21,18 @@
     </div>
 
     <div class="all">
-        <div class="container">
-            <div class="select"><span class="text">Из</span><select id="fromCurrency"></select></div>
-            <div class="input">
-                <input type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
+        <div class="aside">
+                <div class="container">
+                <div class="select"><span class="text">Из</span><select id="fromCurrency"></select></div>
+                <div class="input">
+                    <input type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
+                </div>
+                <button id="convert">Конвертировать</bitton>
             </div>
-            <button id="convert">Конвертировать</bitton>
+            <div class="info">
+                <p class="open">Расшифровка ↓</p>
+                <ul class="allCurrencies"></ul>
+            </div>
         </div>
 
         <button class="swap">

@@ -38,7 +38,7 @@
 
 .all, body {
     font-family: Arial, sans-serif;
-    height: 100vh;
+    min-height: 100vh;;
     width: 100vw;
     background: #c8e0b4;
     background: linear-gradient(90deg,rgba(200, 224, 180, 1) 0%, rgba(184, 224, 177, 1) 50%, rgba(144, 209, 150, 1) 100%);
@@ -96,10 +96,6 @@
     user-select: none;
 }
 
-.none {
-    display: none;
-}
-
 .loader {
     width: 100px;
     height: 100px;
@@ -150,4 +146,34 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.aside {
+    display: grid;
+}
+
+.allCurrencies {
+    display: none;
+    position: absolute;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 10px;
+    padding: var(--padding);
+    border: var(--main-border);
+    background-color: var(--main-bg-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+}
+
+.allCurrencies li {
+    list-style: none;
+}
+
+.open {
+    margin-top: 30px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.open:after {
+    transform: rotate(-45deg);
 }
