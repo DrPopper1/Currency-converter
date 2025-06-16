@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset=utf-8>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     
@@ -23,12 +23,12 @@
     <div class="all">
         <div class="aside">
                 <div class="container">
-                <div class="select"><span class="text">Из</span><select id="fromCurrency"></select></div>
-                <div class="input">
-                    <input type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
+                    <div class="select"><span class="text">Из</span><select title="Из" id="fromCurrency"></select></div>
+                    <div class="input">
+                        <input title="Из" placeholder="Введите число" type="number" id="input1" required min="0" max="1000000000" value="0" size="10">
+                    </div>
+                    <button id="convert">Конвертировать</bitton>
                 </div>
-                <button id="convert">Конвертировать</bitton>
-            </div>
             <div class="info">
                 <p class="open">Расшифровка ↓</p>
                 <ul class="allCurrencies"></ul>
@@ -40,9 +40,9 @@
         </button>
 
         <div class="container">
-            <div class="select"><span class="text">В</span><select id="toCurrency"></select></div>
+            <div class="select"><span class="text">В</span><select title="В" id="toCurrency"></select></div>
             <div class="input">
-                <input type="number" id="input2" required maxlength="10" value="0">
+                <input title="В" placeholder="Введите число" type="number" id="input2" required maxlength="10" value="0">
             </div>
         </div>
     </div>
