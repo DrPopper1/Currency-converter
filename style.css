@@ -177,3 +177,20 @@ body {
 .open:after {
     transform: rotate(-45deg);
 }
+
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .all {
+        gap: 70px;
+    }
+    :root {
+        --font-size: 22px;
+        --gap: 20px;
+        --main-bg-color: #f0f0f0;
+        --main-border: black 2px solid;
+        --padding: 20px;
+        --border-radius: 20px;
+        --box-shadow: 10px 10px 15px rgb(41, 40, 40);
+    }
+}
+/* @media (min-width: 1024px) {} */
