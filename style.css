@@ -178,19 +178,33 @@ body {
     transform: rotate(-45deg);
 }
 
-@media (max-width: 767px) {}
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 767px) {
     .all {
-        gap: 70px;
+        gap: 30px;
+        display: grid;
+        padding: 15px 0 15px 0;
     }
     :root {
-        --font-size: 22px;
-        --gap: 20px;
-        --main-bg-color: #f0f0f0;
-        --main-border: black 2px solid;
-        --padding: 20px;
-        --border-radius: 20px;
-        --box-shadow: 10px 10px 15px rgb(41, 40, 40);
+        --font-size: 18px;
+        --gap: 10px;
+        --main-border: black 1px solid;
+        --padding: 10px;
+    }
+
+    .allCurrencies {
+        position: relative;
+        grid-template-columns: repeat(1, 1fr);
+        font-size: 12px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .all {
+        display: grid;
+    }
+
+    .allCurrencies {
+        position: relative;
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 /* @media (min-width: 1024px) {} */
